@@ -581,8 +581,8 @@ public class CircularProgressIndicator extends View {
     public void setProgressText(String progressText) {
         this.progressText = progressText;
         drawText(canvasBackup);
-        //reformatProgressText();
-        //invalidateEverything();
+        reformatProgressText();
+        invalidateEverything();
     }
 
     @NonNull
