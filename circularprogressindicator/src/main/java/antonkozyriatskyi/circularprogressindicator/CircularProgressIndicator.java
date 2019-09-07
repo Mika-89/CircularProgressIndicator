@@ -132,7 +132,7 @@ public class CircularProgressIndicator extends View {
     }
 
     private void init(@NonNull Context context, @Nullable AttributeSet attrs) {
-        setLayerType(LAYER_TYPE_SOFTWARE, null);
+
         int progressColor = Color.parseColor(DEFAULT_PROGRESS_COLOR);
         int progressBackgroundColor = Color.parseColor(DEFAULT_PROGRESS_BACKGROUND_COLOR);
         int progressStrokeWidth = dp2px(DEFAULT_STROKE_WIDTH_DP);
@@ -261,7 +261,7 @@ public class CircularProgressIndicator extends View {
         // multiply by .1f to have an extra space for small padding between text and circle
         desiredSize += Math.max(textBoundsRect.width(), textBoundsRect.height()) + desiredSize * .1f;
 
-        int finalWidth = 0;
+        int finalWidth;
         switch (widthMode) {
             case MeasureSpec.EXACTLY:
                 finalWidth = measuredWidth;
@@ -272,11 +272,9 @@ public class CircularProgressIndicator extends View {
             default:
                 finalWidth = desiredSize;
                 break;
-            case MeasureSpec.UNSPECIFIED:
-                break;
         }
 
-        int finalHeight = 0;
+        int finalHeight;
         switch (heightMode) {
             case MeasureSpec.EXACTLY:
                 finalHeight = measuredHeight;
@@ -286,8 +284,6 @@ public class CircularProgressIndicator extends View {
                 break;
             default:
                 finalHeight = desiredSize;
-                break;
-            case MeasureSpec.UNSPECIFIED:
                 break;
         }
 
