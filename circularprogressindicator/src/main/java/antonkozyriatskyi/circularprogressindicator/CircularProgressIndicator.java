@@ -94,8 +94,6 @@ public class CircularProgressIndicator extends View {
 
     private boolean isFillBackgroundEnabled;
 
-    private Canvas canvasBackup;
-
     @Direction
     private int direction = DIRECTION_COUNTERCLOCKWISE;
 
@@ -334,7 +332,6 @@ public class CircularProgressIndicator extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-        canvasBackup = canvas;
         drawProgressBackground(canvas);
         drawProgress(canvas);
         if (shouldDrawDot) drawDot(canvas);
@@ -580,8 +577,7 @@ public class CircularProgressIndicator extends View {
 
     public void setProgressText(String progressText) {
         this.progressText = progressText;
-        drawText(canvasBackup);
-        invalidateEverything();
+        invalidate();
     }
 
     @NonNull
